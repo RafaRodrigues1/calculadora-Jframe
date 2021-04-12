@@ -152,8 +152,7 @@ public class Calculadora extends javax.swing.JFrame {
     double num1 = Double.parseDouble(n1.getText());    //num1 recebe o valor que está no texto de n1
     double num2 = Double.parseDouble(n2.getText());    //num2 recebe o valor que está no texto de n2
     String sim = simbol.getText();      //sim recebe o sinal q estará no texto de simbol
-    Double result = Calculo(sim, num1, num2); 
-    resultado.setText(Double.toString(result));       
+    resultado.setText(Double.toString(Calculo(sim, num1, num2)));       
     }//GEN-LAST:event_clickBotao
 
     private void clickSom(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickSom
