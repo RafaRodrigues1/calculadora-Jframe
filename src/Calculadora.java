@@ -1,16 +1,20 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 /**
- *
- * @author RAFAEL
+ * @author RafaelRodrigues1
  */
 public class Calculadora extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Calculadora
-     */
     public Calculadora() {
         initComponents();
     }
     
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -143,19 +147,19 @@ public class Calculadora extends javax.swing.JFrame {
             case "+":   //Se sim for igual a +
                 float soma = (num1+num2);   //Efetua a soma
                 resultado.setText(Float.toString(soma));
-                break;
+              
             case "-":   //Se sim for igual a -
                 float sub = (num1-num2);    //Efetua a subtração
                 resultado.setText(Float.toString(sub));
-                break;
+               
             case "*":   //Se sim for igual a *
                 float mult = (num1*num2);   //Efetua a multiplicação
                 resultado.setText(Float.toString(mult));
-                break;
+               
             case "/":   //Se sim for igual a /
                 float div = (num1/num2);    //Efetua a divisão
                 resultado.setText(Float.toString(div));
-                break;
+               
             default:
                 break;
         }
