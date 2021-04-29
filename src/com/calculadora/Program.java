@@ -1,14 +1,16 @@
+package com.calculadora;
 
+import javax.swing.JOptionPane;
 
 /**
  * @author RafaelRodrigues1
  */
-public class Calculadora extends javax.swing.JFrame {
+public class Program extends javax.swing.JFrame {
 
     /**
      * Creates new form Calculadora
      */
-    public Calculadora() {
+    public Program() {
         initComponents();
     }
     
@@ -137,22 +139,20 @@ public class Calculadora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private Double Calculo(String sim, double x, double y){
-        Double result = 0.0;
-        switch (sim){
-            case"+" ->{result=x+y;}
-            case"-" ->{result=x-y;}
-            case"*" ->{result=x*y;}
-            case"/" ->{result=x/y;}
-        }
-        return result;
-    }
+    
     
     private void clickBotao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickBotao
-    double num1 = Double.parseDouble(n1.getText());    //num1 recebe o valor que está no texto de n1
-    double num2 = Double.parseDouble(n2.getText());    //num2 recebe o valor que está no texto de n2
-    String sim = simbol.getText();      //sim recebe o sinal q estará no texto de simbol
-    resultado.setText(Double.toString(Calculo(sim, num1, num2)));       
+        try{
+            Calculadora calc = new Calculadora(Double.parseDouble(n1.getText()), Double.parseDouble(n2.getText()));
+            String sim = simbol.getText(); 
+            resultado.setText(String.format("%.2f", calc.calcular(sim))); 
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro!\n\nDica: Utilize ponto no lugar da vírgula");
+        }
+        catch(ArithmeticException e){
+            JOptionPane.showMessageDialog(null, "Insira um operador aritmétrico válido");
+        }
     }//GEN-LAST:event_clickBotao
 
     private void clickSom(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickSom
@@ -190,20 +190,21 @@ public class Calculadora extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Program.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Program.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Program.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Program.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calculadora().setVisible(true);
+                new Program().setVisible(true);
             }
         });
     }
